@@ -32,6 +32,10 @@ class SocialFormRequest extends FormRequest
                 'required',
                 'string'
             ],
+            'socialicon' => [
+                'nullable',
+                'mimes:jpg,jpeg,png'
+            ],
         ];
     }
 }

@@ -34,7 +34,17 @@
                                     @error('smurl')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
-                                </div>                                
+                                </div>  
+                                <div class="col-12">
+                                    <label class="col-sm-2 col-form-label">Social Icon</label>
+                                    <div class="col-sm-10">
+                                        <div class="input-group">
+                                            <img src="{{ asset('/uploads/socialicon/' . $socialmedia->socialicon) }}" width="40px"
+                                            height="40px" /> 
+                                            <input type="file" name="socialicon" class="form-control">                               
+                                        </div>
+                                    </div>
+                                </div>                               
                             </div>
                         </div>
 

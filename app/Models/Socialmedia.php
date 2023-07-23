@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Socialmedia extends Model
 {
     protected $table = 'socialmedia';
-
     protected $fillable =[
         'smname',
-        'smurl',          
+        'smurl',  
+        'socialicon',        
     ];
 }

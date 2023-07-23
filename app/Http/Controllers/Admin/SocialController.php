@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Socialmedia;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 use App\Http\Requests\SocialFormRequest;
 
 class SocialController extends Controller
@@ -25,6 +26,13 @@ class SocialController extends Controller
         $socialmedia = new Socialmedia;
         $socialmedia->smname = $validatedData['smname'];
         $socialmedia->smurl = $validatedData['smurl'];
+        if ($request->hasFile('socialicon')) {            
+            $file = $request->file('socialicon');
+            $ext = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $ext;
+            $file->move('uploads/socialicon/', $filename);
+            $socialmedia->socialicon = $filename;
+        }
          
         $socialmedia->save();
         return redirect('admin/socialmedia')-> with('message', 'Socialmedia Added');
@@ -39,6 +47,17 @@ class SocialController extends Controller
         $socialmedia =  Socialmedia::findOrFail($socialmedia);
         $socialmedia->smname = $validatedData['smname'];
         $socialmedia->smurl = $validatedData['smurl'];   
+        if ($request->hasFile('socialicon')) {
+            $path = 'uploads/socialicon/' . $socialmedia->socialicon;
+            if (File::exists($path)) {
+                File::delete($path);
+            }
+            $file = $request->file('socialicon');
+            $ext = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $ext;
+            $file->move('uploads/socialicon/', $filename);
+            $socialmedia->socialicon = $filename;
+        }
         $socialmedia->update();
         return redirect('admin/socialmedia')-> with('message', 'Socialmedia Update');
     }
