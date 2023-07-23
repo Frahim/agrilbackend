@@ -1,0 +1,30 @@
+.nav-tabs li .active {
+    background-color: #ddd;
+    color: #333;
+    
+}
+
+.nav-tabs li a {
+    padding: 20px 30px;
+    display: block;
+    border-right: 1px solid #d1d3e2;
+}
+.editDelet {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.gallery-view {
+    display: flex;
+    gap: 10px;
+}
+.glimg {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+select {
+    width: 100%;
+    border-radius: 5px;
+}
