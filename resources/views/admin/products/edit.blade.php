@@ -111,12 +111,12 @@
 
                             <div class="tab-pane fade in" id="variation-pills">
                                 <div class="row">
-                                    <div class="col-sm-12 col-md-6 my-3 ">
+                                    <div class="col-sm-12 col-md-12 my-3 ">
                                         <label> Product Description</label>
-                                        <textarea rows="5" type="textarea" name="description" class="form-control">{{ $product->description }}</textarea>
+                                        <textarea rows="5" type="textarea" name="description" class="form-control summernote">{{ $product->description }}</textarea>
                                     </div>
 
-                                    <div class="col-sm-12 col-md-6 my-3 ">
+                                    {{-- <div class="col-sm-12 col-md-6 my-3 ">
                                         <label>Disease Resistance/Tolerance</label>
                                         <textarea rows="5" type="textarea" name="disease" class="form-control">{{ $product->disease }}</textarea>
                                     </div>
@@ -136,7 +136,7 @@
                                     <div class="col-sm-12 col-md-6 my-3 ">
                                         <label>Plant</label>
                                         <textarea rows="5" type="textarea" name="plant" class="form-control">{{ $product->plant }}</textarea>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
 

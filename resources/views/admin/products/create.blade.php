@@ -90,10 +90,10 @@
                                 <div class="row">
                                     <div class="col-sm-12 col-md-12 my-3 ">
                                         <label> Product Description</label>
-                                        <textarea class="form-control" rows="5" type="textarea" name="description" placeholder="Enter text ..."></textarea>
+                                        <textarea class="form-control summernote" rows="5" type="textarea" name="description" placeholder="Enter text ..."></textarea>
                                     </div>
 
-                                    <div class="col-sm-12 col-md-6 my-3 ">
+                                    {{-- <div class="col-sm-12 col-md-6 my-3 ">
                                         <label>Disease Resistance/Tolerance</label>
                                         <textarea name="disease" rows="5" class="form-control" placeholder="Enter text ..."></textarea>
                                     </div>
@@ -113,7 +113,7 @@
                                     <div class="col-sm-12 col-md-6 my-3 ">
                                         <label>Plant</label>
                                         <textarea rows="5" type="textarea" name="plant" class="form-control"></textarea>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
 

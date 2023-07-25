@@ -18,15 +18,9 @@
                                 <tr>
                                     <th scope="col">Name</th>
                                     <th scope="col">Brand</th>
-                                    <th scope="col">Category</th>
-                                    <th scope="col">Description</th>
+                                    <th scope="col">Category</th>                                   
                                     <th scope="col">Price</th>                                    
-                                    <th scope="col">Quantity</th>
-                                    <th scope="col"><small>Disease Resistance/<br/>Tolerance</small></th>
-                                    <th scope="col">Variety</th>
-                                    <th scope="col">Sorting</th>
-                                    <th scope="col">Pod</th>
-                                    <th scope="col">plant</th>
+                                    <th scope="col">Quantity</th>                                                              
                                     <th scope="col">Image</th>
                                     <th scope="col"></th>
                                 </tr>
@@ -50,7 +44,7 @@
                                                 No Category Silected
                                             @endif
                                         </td>
-                                        <td>{{ $product->description }}</td>
+                                      
                                         <td>
                                             Orginal Price: {{ $product->orginal_price }}
                                             <br />
@@ -59,11 +53,7 @@
                                         
                                         <td>{{ $product->quantity }}</td>
 
-                                        <td>{{ $product->disease }}</td>
-                                        <td>{{ $product->variety }}</td>
-                                        <td>{{ $product->sorting }}</td>
-                                        <td>{{ $product->pod }}</td>
-                                        <td>{{ $product->plant }}</td>
+                                                                    
                                         <td>
                                             <img src="{{ asset($product->pf_image) }}" width="60px"
                                                     height="60px">

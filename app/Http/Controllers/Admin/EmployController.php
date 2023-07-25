@@ -8,6 +8,7 @@ use App\Models\Brands;
 use App\Models\Employs;
 use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 use App\Http\Requests\EmployFormRequest;
 
 class EmployController extends Controller
@@ -42,13 +43,15 @@ class EmployController extends Controller
         $employ->brand_id = $validatedData['brand_id'];
 
         if ($request->hasFile('picture')) {
+            $path = 'uploads/employ/' .  $employ->picture;
+           
             $file = $request->file('picture');
             $ext = $file->getClientOriginalExtension();
             $filename = time() . '.' . $ext;
+
             $file->move('uploads/employ/', $filename);
             $employ->picture = $filename;
         }
-
 
         $employ->save();
 
@@ -77,21 +80,19 @@ class EmployController extends Controller
                 'department'=> $validatedData['department'],  
                 'brand_id' => $validatedData['brand_id'],                            
             ]);
-
-            if($request->hasFile('picture')){
-                $uploadPath = 'uploads/employ/';        
-                $i =1;
-                foreach($request->file('picture') as $imageFile){
-                    $extention = $imageFile-> getClientOriginalExtension();
-                    $filename = time().$i++.'.'.$extention;
-                    $imageFile-> move($uploadPath, $filename);
-                    $finalImagePathName = $uploadPath.$filename;        
-                    $employ->productImages()->create([
-                        'employ_id' => $employ->id,
-                        'picture' => $finalImagePathName,
-                    ]);
+            if ($request->hasFile('picture')) {
+                $path = 'uploads/employ/' .  $employ->picture;
+                if (File::exists($path)) {
+                    File::delete($path);
                 }
-               }
+                $file = $request->file('picture');
+                $ext = $file->getClientOriginalExtension();
+                $filename = time() . '.' . $ext;
+    
+                $file->move('uploads/employ/', $filename);
+                $employ->picture = $filename;
+            }
+            
         
                return redirect('admin/employ')->with('message','Update Sucessfilly');
         }
